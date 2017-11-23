@@ -4,8 +4,6 @@ namespace Illuminate\Auth\Notifications;
 
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
-use Mail;
-use App\Mail\Email;
 
 class ResetPassword extends Notification
 {

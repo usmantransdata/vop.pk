@@ -15,6 +15,8 @@ use App\AsignTemplate;
 use App\EmailTemplate;
 use Mail;
 use App\Mail\Email;
+use App\Mail\Welcome;
+
 
 class RegisterController extends Controller
 {
@@ -99,24 +101,33 @@ class RegisterController extends Controller
 
 
      public function register(Request $request)
-    {
-         
-
-        $input = $request->all();
-       $validator = $this->validator($input);
+    {       
+             $input = $request->all();
+            $validator = $this->validator($input);
+			
+			die("d");
+       
     
         if ($validator -> passes())
        {
-            $data = $this->create($input)->toArray();
+           
 
             $data['verification_token'] = str_random(25);
-
             $user = User::find($data['id']);
             $user->verification_token = $data['verification_token'];
             $user->save();
+			$data = $this->create($input)->toArray();
+            $temp = AsignTemplate::find(1);
+            $email = EmailTemplate::findOrFail($temp->template_id)->first();			
+			$data['subject']=$email->subject;
+			$data['template']=$email->template;
+			Mail::to($data['email'])->send(new Welcome($data));
             //$myEmail = 'aatmaninfotech@gmail.com';
+			
+			
 
-             Mail::to($data['email'])->send(new Email());
+    	   
+            // Mail::to($data['email'])->send(new Welcome());
 
       return back()->withAlert('Register successfully, please verify your email.');
 

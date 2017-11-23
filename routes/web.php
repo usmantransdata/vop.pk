@@ -34,7 +34,10 @@ Route::resource('permissions', 'PermissionController');
 
 Route::resource('posts', 'PostController');
 
-
+Route::get("testemail",function(){
+	
+	return new \App\Mail\Welcome;
+});
 //activation 
 
 Route::get('user/activation/{token}', 'Auth\RegisterController@userActivation');

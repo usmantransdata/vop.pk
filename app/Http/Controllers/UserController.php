@@ -8,6 +8,7 @@ use App\User;
 use Auth;
 use DB;
 
+
 //Importing laravel-permission models
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
