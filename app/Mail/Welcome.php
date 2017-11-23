@@ -21,7 +21,6 @@ class Welcome extends Mailable
 	
     {
      $this->args=$args;
-	 //
     }
 
     /**

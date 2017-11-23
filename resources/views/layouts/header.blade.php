@@ -1,84 +1,88 @@
 <!DOCTYPE html>
-<html>
-<head>
-  @include('layouts.sidebar')
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title>TransData</title>
+    <meta name="description" content="overview &amp; stats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<link rel="stylesheet" href="/aceadmin/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/aceadmin/assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/aceadmin/assets/css/ace-fonts.css" />
+    <link rel="stylesheet" href="/aceadmin/assets/css/ace.min.css" id="main-ace-style" />
+    <link rel="stylesheet" href="/aceadmin/assets/css/ace-skins.min.css" />
+    <link rel="stylesheet" href="/aceadmin/assets/css/ace-rtl.min.css" />
+    <script src="/aceadmin/assets/js/ace-extra.min.js"></script>
+    
+    
+    <link rel="stylesheet" href="/aceadmin/assets/css/jquery-ui.custom.min.css" />
+    <link rel="stylesheet" href="/aceadmin/assets/css/jquery.gritter.css" />
+    <link rel="stylesheet" href="/aceadmin/assets/css/select2.css" />
+    <link rel="stylesheet" href="/aceadmin/assets/css/datepicker.css" />
+    <link rel="stylesheet" href="/aceadmin/assets/css/bootstrap-editable.css" />
+   </head>
+  <body class="no-skin">
+    <!-- #section:basics/navbar.layout -->
+    <div id="navbar" class="navbar navbar-default">
+      <script type="text/javascript">
+        try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+      </script>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>TransData| Dashboard</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="/bower_components/Ionicons/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
-  <!-- Morris chart -->
-  <link rel="stylesheet" href="/bower_components/morris.js/morris.css">
-  <!-- jvectormap -->
-  <link rel="stylesheet" href="/bower_components/jvectormap/jquery-jvectormap.css">
-  <!-- Date Picker -->
-  <link rel="stylesheet" href="/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="/bower_components/bootstrap-daterangepicker/daterangepicker.css">
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+      <div class="navbar-container" id="navbar-container">
+        <!-- #section:basics/sidebar.mobile.toggle -->
+        <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler">
+          <span class="sr-only">Toggle sidebar</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- /section:basics/sidebar.mobile.toggle -->
+        <div class="navbar-header pull-left">
+          <!-- #section:basics/navbar.layout.brand -->
+          <a href="/backend" class="navbar-brand">
+            <small>
+              <i class="fa fa-leaf"></i>
+              Trans Data
+            </small>
+          </a>
+        </div>
 
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-</head>
-<body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
+        <!-- #section:basics/navbar.dropdown -->
+        <div class="navbar-buttons navbar-header pull-right" role="navigation">
+              <ul class="nav ace-nav" >
+                <!-- #section:basics/navbar.user_menu -->
+           
+                <li class="light-blue">
+                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: transparent;">
+                      <img src="/dist/img/user2-160x160.jpg" style="width: 30px;" class="user-image" alt="User Image">
+                      <span class="hidden-xs">{{ Auth::user()->name }}</span>
+                    </a>
 
-  <header class="main-header">
-    <!-- Logo -->
-    <a href="/" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>Hecki</b></span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Trans</b>Data</span>
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-      </a>
+                  <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                     <li class="user-header">
+                     <img src="/dist/img/user2-160x160.jpg" style="width: 150px;" class="user-image" alt="User Image">
+                      <center>{{ Auth::user()->name }}</center>
+                      </p>
+                    </li>
 
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-         
-       
-          <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">{{ Auth::user()-> name }}</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-                <img src="/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-             
-                <p>{{ Auth::user()-> name }}
-                 <small>Member since Nov. 2012</small>
-                </p>
-              </li>
-              <!-- Menu Body -->
-             
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
+                    <li>
+                      <a href="#">
+                        <i class="ace-icon fa fa-cog"></i>
+                        Settings
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="{{route('profile')}}">
+                        <i class="ace-icon fa fa-user"></i>
+                        Profile
+                      </a>
+                    </li>
+
+                    <li class="divider"></li>
+
+                    <li>
+                      <div class="pull-right">
 
                
                                         <a class="btn btn-default btn-flat" href="{{ route('logout') }}"
@@ -92,15 +96,19 @@
                                         </form>
                                     
                 </div>
-              </li>
-            </ul>
-          </li>
-         
-        </ul>
-      </div>
+                    </li>
+                  </ul>
+                </li>
 
+                <!-- /section:basics/navbar.user_menu -->
+              </ul>
 
+             
+        </div>
 
-    </nav>
-  </header>
- 
+        <!-- /section:basics/navbar.dropdown -->
+      </div><!-- /.navbar-container -->
+    </div>
+ </body>
+</html>
+

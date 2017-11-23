@@ -146,4 +146,17 @@ class UserController extends Controller {
             ->with('flash_message',
              'User successfully deleted.');
     }
+	public function profile(){
+        $user = User::all(); 
+        return view('users.profile')->with('user', $user);
+    }
+
+	
+    public function updateProfile(Request $request)
+    {
+
+
+            $input = $request->all();
+            var_dump($input);die();
+    }
 }

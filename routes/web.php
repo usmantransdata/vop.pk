@@ -70,4 +70,9 @@ Route::get('template-assign', 'AsignTemplateController@templateAssign')->name('t
 Route::get('asign-template', 'AsignTemplateController@asignTemplate')->name('asign-template');
 
 
+Route::get('profile', 'UserController@profile')->name('profile');
+
+
+Route::get('update', 'UserController@updateProfile');
+
 //Route::get('template', 'EmailTemplateController')->name()
