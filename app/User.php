@@ -60,5 +60,9 @@ class User extends Authenticatable
     }
 
 
-              
+     public function profile(){
+
+         return $this->belongsTo('App\Profile');
+
+    }          
 }

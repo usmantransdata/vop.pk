@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use DB;
+use App\AsignTemplate;
+use App\EmailTemplate;
+use Mail;
+use App\Mail\Email;
+use App\Mail\Welcome;
 
 
 //Importing laravel-permission models
@@ -61,6 +66,7 @@ class UserController extends Controller {
 
         $user = User::create($request->only('email', 'name', 'password')); //Retrieving only the email and password data
 
+       
         $roles = $request['roles']; //Retrieving the roles field
     //Checking if a role was selected
         if (isset($roles)) {
@@ -69,7 +75,16 @@ class UserController extends Controller {
             $role_r = Role::where('id', '=', $role)->firstOrFail();            
             $user->assignRole($role_r); //Assigning role to user
             }
-        }        
+        }   
+            $temp = AsignTemplate::find(1);
+             $email = EmailTemplate::findOrFail($temp->template_id)->first(); 
+            $data['subject']=$email->subject;
+            $data['template']=$email->template;
+            $data['title']=$email->title;    
+            print_r($email->template);
+            $data['template']=str_replace("{{$data['name']}}", $email->subject, $email->template);
+                print_r($data['template']);
+            die();
     //Redirect to the users.index view and display message
         return redirect()->route('users.index')
             ->with('flash_message',
@@ -146,17 +161,8 @@ class UserController extends Controller {
             ->with('flash_message',
              'User successfully deleted.');
     }
-	public function profile(){
-        $user = User::all(); 
-        return view('users.profile')->with('user', $user);
-    }
+	
 
 	
-    public function updateProfile(Request $request)
-    {
-
-
-            $input = $request->all();
-            var_dump($input);die();
-    }
+   
 }

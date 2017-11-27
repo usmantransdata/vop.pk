@@ -10,24 +10,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
     <!-- bootstrap & fontawesome -->
-    <link rel="stylesheet" href="/aceadmin/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/aceadmin/assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="{{ asset('/') }}public/aceadmin/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="{{ asset('/') }}public/aceadmin/assets/css/font-awesome.min.css" />
 
     <!-- text fonts -->
-    <link rel="stylesheet" href="/aceadmin/assets/css/ace-fonts.css" />
+    <link rel="stylesheet" href="{{ asset('/') }}public/aceadmin/assets/css/ace-fonts.css" />
 
     <!-- ace styles -->
-    <link rel="stylesheet" href="/aceadmin/assets/css/ace.min.css" />
+    <link rel="stylesheet" href="{{ asset('/') }}public/aceadmin/assets/css/ace.min.css" />
 
     <!--[if lte IE 9]>
       <link rel="stylesheet" href="../assets/css/ace-part2.min.css" />
     <![endif]-->
-    <link rel="stylesheet" href="/aceadmin/assets/css/ace-rtl.min.css" />
+    <link rel="stylesheet" href="{{ asset('/') }}public/aceadmin/assets/css/ace-rtl.min.css" />
 
     <!--[if lte IE 9]>
       <link rel="stylesheet" href="../assets/css/ace-ie.min.css" />
     <![endif]-->
-    <link rel="stylesheet" href="/aceadmin/assets/css/ace.onpage-help.css" />
+    <link rel="stylesheet" href="{{ asset('/') }}public/aceadmin/assets/css/ace.onpage-help.css" />
 
   </head>
 
@@ -79,7 +79,7 @@
 
                      
 
-       <form class="form-horizontal" method="POST" action="/login">
+       <form class="form-horizontal" method="POST" action="login">
                     {{ csrf_field() }} 
                      <fieldset>
                           <label class="block clearfix">
@@ -341,12 +341,12 @@
     <!--[if !IE]> -->
    
     <script type="text/javascript">
-      window.jQuery || document.write("<script src='/aceadmin/assets/js/jquery.min.js'>"+"<"+"/script>");
+      window.jQuery || document.write("<script src='{{ asset('/') }}public/aceadmin/assets/js/jquery.min.js'>"+"<"+"/script>");
     </script>
 
    
     <script type="text/javascript">
-      if('ontouchstart' in document.documentElement) document.write("<script src='/aceadmin/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+      if('ontouchstart' in document.documentElement) document.write("<script src='{{ asset('/') }}public/aceadmin/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
     </script>
 
     <!-- inline scripts related to this page -->
@@ -390,7 +390,7 @@
     </script>
      @else
  <script type="text/javascript">
-    window.location = "/admin";//here double curly bracket
+    window.location = "/";//here double curly bracket
 </script>
 
 @endguest

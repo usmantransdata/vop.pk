@@ -5,16 +5,19 @@ namespace App;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
+use App\Post;
 
 class Post extends Model
 {
 
 	  use HasSlug;
 
+      public $timestamps = false;
+
     
 
     protected $fillable = [
-        'title', 'body', 'slug'
+        'title', 'body', 'slug', 'author_id'
     ];
 
 
@@ -23,6 +26,11 @@ class Post extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
+    }
+
+    public function user_id(){
+        
+        return $this->hasOne(Post::class, 'author_id');
     }
 
 }

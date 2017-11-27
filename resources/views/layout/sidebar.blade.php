@@ -12,7 +12,7 @@
         </script>
      <ul class="nav nav-list">
           <li class="active">
-            <a href="index.html">
+            <a href="/backend">
               <i class="menu-icon fa fa-tachometer"></i>
               <span class="menu-text"> Dashboard </span>
             </a>
@@ -68,7 +68,7 @@
           <li class="">
             <a href="#" class="dropdown-toggle">
               <i class="menu-icon fa fa-pencil-square-o"></i>
-              <span class="menu-text"> Articals </span>
+              <span class="menu-text"> Posts </span>
               <b class="arrow fa fa-angle-down"></b>
             </a>
             <b class="arrow"></b>
@@ -76,7 +76,7 @@
               <li class="">
                 <a href="{{ route('posts.create')}}">
                   <i class="menu-icon fa fa-caret-right"></i>
-                  Add New Artical
+                  Add New Posts
                 </a>
                 <b class="arrow"></b>
               </li>
@@ -84,7 +84,7 @@
               <li class="">
               <a href="{{ route('posts.index')}}">
                   <i class="menu-icon fa fa-caret-right"></i>
-                 Articals
+                 All Posts
                 </a>
 
                 <b class="arrow"></b>

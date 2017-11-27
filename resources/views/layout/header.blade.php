@@ -6,14 +6,20 @@
     <title>TransData</title>
     <meta name="description" content="overview &amp; stats" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-<link rel="stylesheet" href="/aceadmin/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/aceadmin/assets/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="/aceadmin/assets/css/ace-fonts.css" />
-    <link rel="stylesheet" href="/aceadmin/assets/css/ace.min.css" id="main-ace-style" />
-    <link rel="stylesheet" href="/aceadmin/assets/css/ace-skins.min.css" />
-    <link rel="stylesheet" href="/aceadmin/assets/css/ace-rtl.min.css" />
-    <script src="/aceadmin/assets/js/ace-extra.min.js"></script>
+<link rel="stylesheet" href="{{ asset('/') }}public/aceadmin/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="{{ asset('/') }}public/aceadmin/assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="{{ asset('/') }}public/aceadmin/assets/css/ace-fonts.css" />
+    <link rel="stylesheet" href="{{ asset('/') }}public/aceadmin/assets/css/ace.min.css" id="main-ace-style" />
+    <link rel="stylesheet" href="{{ asset('/') }}public/aceadmin/assets/css/ace-skins.min.css" />
+    <link rel="stylesheet" href="{{ asset('/') }}public/aceadmin/assets/css/ace-rtl.min.css" />
+    <script src="{{ asset('/') }}public/aceadmin/assets/js/ace-extra.min.js"></script>
     
+
+    <link rel="stylesheet" href="{{ asset('/') }}public/aceadmin/assets/css/jquery-ui.custom.min.css" />
+    <link rel="stylesheet" href="{{ asset('/') }}public/aceadmin/assets/css/jquery.gritter.css" />
+    <link rel="stylesheet" href="{{ asset('/') }}public/aceadmin/assets/css/select2.css" />
+    <link rel="stylesheet" href="{{ asset('/') }}public/aceadmin/assets/css/datepicker.css" />
+    <link rel="stylesheet" href="{{ asset('/') }}public/aceadmin/assets/css/bootstrap-editable.css" />
    </head>
   <body class="no-skin">
     <!-- #section:basics/navbar.layout -->
@@ -33,7 +39,7 @@
         <!-- /section:basics/sidebar.mobile.toggle -->
         <div class="navbar-header pull-left">
           <!-- #section:basics/navbar.layout.brand -->
-          <a href="#" class="navbar-brand">
+          <a href="/backend" class="navbar-brand">
             <small>
               <i class="fa fa-leaf"></i>
               Trans Data

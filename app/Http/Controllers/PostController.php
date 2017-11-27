@@ -52,7 +52,7 @@ class PostController extends Controller {
 
         $input = $request->all();
          $user = Post::create($input);
-        $user->author_id = Auth::user()->id;
+         $user->author_id = Auth::user()->id;
         $user->save();
     //Display a successful message upon save
         return redirect()->route('posts.index')
@@ -87,8 +87,8 @@ class PostController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($slug) {
-        $post = Post::findOrFail($slug);
+    public function edit($id) {
+        $post = Post::findOrFail($id);
 
         return view('posts.edit', compact('post'));
     }
@@ -124,6 +124,7 @@ class PostController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($slug) {
+
         $post = Post::findOrFail($slug);
         $post->delete();
 

@@ -11,14 +11,18 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('admin/', function () {
     return view('auth.login');
 });
-
+Route::get('/', function(){
+	
+	return view('auth.login');
+});
 Auth::routes();
 
 // Route::post('register', 'Auth\RegisterController@register');
-
+Route::group(['middleware' => 'auth'], function () {
+	
 Route::get('/backend', 'HomeController@index')->name('backend');
 
 // role and permision routes 
@@ -34,10 +38,10 @@ Route::resource('permissions', 'PermissionController');
 
 Route::resource('posts', 'PostController');
 
-Route::get("testemail",function(){
+/*Route::get("testemail",function(){
 	
 	return new \App\Mail\Welcome;
-});
+});*/
 //activation 
 
 Route::get('user/activation/{token}', 'Auth\RegisterController@userActivation');
@@ -70,9 +74,11 @@ Route::get('template-assign', 'AsignTemplateController@templateAssign')->name('t
 Route::get('asign-template', 'AsignTemplateController@asignTemplate')->name('asign-template');
 
 
-Route::get('profile', 'UserController@profile')->name('profile');
+Route::get('profile', 'ProfileController@profile')->name('profile');
 
 
-Route::get('update', 'UserController@updateProfile');
+Route::get('profile/update', 'ProfileController@updateProfile');
+
+});
 
 //Route::get('template', 'EmailTemplateController')->name()

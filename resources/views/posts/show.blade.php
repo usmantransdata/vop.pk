@@ -22,13 +22,14 @@
               <hr>
               <p class="lead">{{ $post->body }} </p>
               <hr>
-              {!! Form::open(['method' => 'DELETE', 'route' => ['posts.destroy', $post->slug] ]) !!}
-              <a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
+              {!! Form::open(['method' => 'DELETE', 'route' => ['posts.destroy', $post->id] ]) !!}
+              <a href="{{ url()->previous() }}" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
               @can('Edit Post')
-              <a href="{{ route('posts.edit', $post->slug) }}" class="btn btn-info" role="button">Edit</a>
+              <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-info" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
               @endcan
               @can('Delete Post')
-              {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+              <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
+              </button>
               @endcan
               {!! Form::close() !!}
           </div>

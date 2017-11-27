@@ -10,7 +10,7 @@
 					<div class="page-content-area">
 						<div class="page-header">
 							<h1>
-								{{ Auth::user()->name }} Profile Page
+								{{ Auth::user()->name }} Profile
 								<small>
 									<i class="ace-icon fa fa-angle-double-right"></i>
 									Fully featured profile
@@ -30,7 +30,12 @@
 										<i class="ace-icon fa fa-umbrella bigger-120 blue"></i>
 										Click on the image below or on profile fields to edit them ...
 									</div>
-
+									@if(Session::has('msg'))
+							        <div class="alert alert-info">
+							            <a class="close" data-dismiss="alert">×</a>
+							            <strong>Congrates!</strong> {!!Session::get('msg')!!}
+							        </div>
+							    @endif
 									
 								</div>
 
@@ -42,7 +47,7 @@
 											<div>
 												<!-- #section:pages/profile.picture -->
 												<span class="profile-picture">
-													<img id="avatar" class="editable img-responsive" alt="Alex's Avatar" src="../assets/avatars/profile-pic.jpg" />
+													<img id="avatar" class="editable img-responsive" alt="Alex's Avatar" src="/aceadmin/assets/avatars/profile-pic.jpg" />
 												</span>
 
 												<!-- /section:pages/profile.picture -->
@@ -193,16 +198,26 @@
 											<div class="space-12"></div>
 
 											<!-- #section:pages/profile.info -->
-											<form  id="update" action="#" method="POST">
+											<form  id="update" action="#">
 												 {{ csrf_field() }}
 											<div class="profile-user-info profile-user-info-striped">
 											<div class="profile-info-row">
-													<div class="profile-info-name"> Username </div>
+													<div class="profile-info-name"> Name </div>
 
 													<div class="profile-info-value">
-														<span class="editable" id="username"  name="name">
+														<span class="editable" >
 															{{Auth::user()->name}}	
 															</span>
+													</div>
+												</div>
+
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Nick Name </div>
+
+													<div class="profile-info-value">
+														<span class="editable" id="username" >
+															{{$profile->name}}
+													</span>
 													</div>
 												</div>
 
@@ -211,7 +226,7 @@
 
 													<div class="profile-info-value">
 														<i class="fa fa-map-marker light-orange bigger-110"></i>
-														<span class="editable" id="country">Netherlands</span>
+														<span class="editable" id="country">{{$profile->address}}</span>
 														<span class="editable" id="city">Amsterdam</span>
 													</div>
 												</div>
@@ -220,7 +235,7 @@
 													<div class="profile-info-name"> Age </div>
 
 													<div class="profile-info-value">
-														<span class="editable" id="age">38</span>
+														<span class="editable" id="age">{{$profile->age}}</span>
 													</div>
 												</div>
 
@@ -228,7 +243,7 @@
 													<div class="profile-info-name"> Joined </div>
 
 													<div class="profile-info-value">
-														<span class="editable" id="signup">2010/06/20</span>
+														<span class="editable" id="signup">{{$profile->join_date}}</span>
 													</div>
 												</div>
 
@@ -244,13 +259,23 @@
 													<div class="profile-info-name"> About Me </div>
 
 													<div class="profile-info-value">
-														<span class="editable" id="about">Editable as WYSIWYG</span>
+														<span class="editable" id="about">{{$profile->about}}</span>
 													</div>
 												</div>
 
-												<div style="position: absolute;right: 50px;margin-top: 10px;">
-													<button type="button" style="float: right;background-color: #478fca!important;color:red;">Update Record
-													<i class="fa fa-floppy-o" aria-hidden="true"></i>
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Intrested In</div>
+
+													<div class="profile-info-value">
+														<span class="editable" id="intrests">{{$profile->intrests}}</span>
+													</div>
+												</div>
+
+										<div style="position: absolute;right: 50px;margin-top: 10px;">
+													
+
+											<button type="submit" style="float: right;background-color: #478fca8c!important;color:#000;padding: 5px;font-weight: bold;">Update Me
+													<i class="fa fa-wrench" aria-hidden="true"></i>
 											</button>
 												</div>
 												
@@ -284,7 +309,7 @@
 														<div id="profile-feed-1" class="profile-feed">
 															<div class="profile-activity clearfix">
 																<div>
-																	<img class="pull-left" alt="Alex Doe's avatar" src="../assets/avatars/avatar5.png" />
+																	<img class="pull-left" alt="Alex Doe's avatar" src="/aceadmin/assets/avatars/avatar5.png" />
 																	<a class="user" href="#"> Alex Doe </a>
 																	changed his profile photo.
 																	<a href="#">Take a look</a>
@@ -453,26 +478,25 @@
 
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
-			
 		$(document).ready(function(){
-				$("#update").on('click', function(){
+				$("#update").on('submit', function(){
 					alert("fs");
 					var name = $('#username').text();
 					var country = $('#country').text();
 					var city = $('#city').text();
 					var age = $('#age').text();
+					var join_date = $('#signup').text();
 					var about = $('#about').text();
+					var intrests = $('#intrests').text();
 
-					var dataSting = "username="+name+"country="+country+"city="+city+"age="+age+"about="+about;
+					var dataSting = "username="+name+"&country="+country+"&city="+city+"&age="+age+"&signup="+join_date+"&about="+about+"&intrests="+intrests;
 					
 					$.ajax({
 
 						 type: "GET",
-						 url: "update", 
-						 data:{dataSting},
-						 success: function(data){
-						 	console.log(data);
-						 }
+						 url: "profile/update", 
+						 data: dataSting,
+						datatype:"JSON",
 						  
 					});
 
@@ -634,6 +658,12 @@
 					success: function(response, newValue) {
 					}
 				});
+
+				  $('#intrests')
+				.editable({
+					type: 'text',
+					name: 'intrests'
+			    });
 				
 				
 				

@@ -1,7 +1,8 @@
 @component('mail::message')
 # {{$data['subject']}}
+## {{$data['title']}} {{$data['name']}}
 
-{!!$data['template']!!}
+{{$data['template']}}
 
 ## {{$data['name']}},
 

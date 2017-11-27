@@ -13,11 +13,15 @@
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
     ),
   ),
-  'spatie/laravel-permission' => 
+  'jrean/laravel-user-verification' => 
   array (
     'providers' => 
     array (
-      0 => 'Spatie\\Permission\\PermissionServiceProvider',
+      0 => 'Jrean\\UserVerification\\UserVerificationServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'UserVerification' => 'Jrean\\UserVerification\\Facades\\UserVerification',
     ),
   ),
   'laravelcollective/html' => 
@@ -32,15 +36,11 @@
       'Html' => 'Collective\\Html\\HtmlFacade',
     ),
   ),
-  'jrean/laravel-user-verification' => 
+  'spatie/laravel-permission' => 
   array (
     'providers' => 
     array (
-      0 => 'Jrean\\UserVerification\\UserVerificationServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'UserVerification' => 'Jrean\\UserVerification\\Facades\\UserVerification',
+      0 => 'Spatie\\Permission\\PermissionServiceProvider',
     ),
   ),
 );

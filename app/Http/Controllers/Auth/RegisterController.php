@@ -102,9 +102,12 @@ class RegisterController extends Controller
 
      public function register(Request $request)
     {       
+        
+        
         $input = $request->all();
             $validator = $this->validator($input);      
-			
+		 //echo "dfg";
+         //die();	
         if ($validator -> passes())
        {
             
@@ -112,20 +115,23 @@ class RegisterController extends Controller
             $data['verification_token'] = str_random(25);
             $user = User::find($data['id']);
             $temp = AsignTemplate::find(1);
-            $email = EmailTemplate::findOrFail($temp->template_id)->first();			
+            $email = EmailTemplate::findOrFail($temp->template_id)->first();	
+
+
+
 			$data['subject']=$email->subject;
 			$data['template']=$email->template;
+            $data['title']=$email->title;
             $user->verification_token = $data['verification_token'];
             $user->save();
 			Mail::to($data['email'])->send(new Welcome($data));
-            //$myEmail = 'aatmaninfotech@gmail.com';
-			
-			
-
-    	   
-            // Mail::to($data['email'])->send(new Welcome());
-
+           
       return back()->withAlert('Register successfully, please verify your email.');
+
+       }
+       else{
+        
+        return redirect()->back()->withErrors($validator)->withInput();
 
        }
       

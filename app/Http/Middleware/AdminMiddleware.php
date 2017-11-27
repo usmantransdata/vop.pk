@@ -21,8 +21,8 @@ class AdminMiddleware
         if (!($user == 1)) {
             if (!Auth::user()->hasPermissionTo('Administer roles & permissions')) //If user does //not have this permission
         {
-                return redirect('/frontend');
-               // abort('401');
+              //  return redirect('/frontend');
+               return redirect('errors.404');
             }
         }
         return $next($request);
