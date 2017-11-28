@@ -182,7 +182,7 @@ var $input = $('#input');
 var $button = $('#start_button');
 
 setInterval(function(){
-    if($input.val().length > 0){
+    if($input.val().length > 4){
       
         $button.attr('disabled', false);
     }else{

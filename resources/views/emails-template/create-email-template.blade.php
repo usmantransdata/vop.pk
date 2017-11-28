@@ -4,6 +4,7 @@
    <!-- include summernote css/js-->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.css" rel="stylesheet">
 </head>
+
 <body class="no-skin">
           <div class="main-container" id="main-container">
             <script type="text/javascript">
@@ -37,15 +38,16 @@
                           {{ csrf_field() }}
                     	<div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label>Email Template</label>
-                                <textarea class="form-control summernote" name="template"></textarea>
+                                <label>Email Template</label><br>
+                               
+                                <textarea class="form-control summernote" id="textarea" name="template"></textarea>
                             </div>
 
                          </div>
                       </div>
                     		<div>
-                    <button style="margin-top: 20px; margin-left: 300px;height:50px;width: 600px"	class="btn btn-success" type="submit">
-                            Creat Email Template</button>
+
+             <button  style="margin-top: 20px; margin-left: 300px;height:50px;width: 600px" id="start_button" 	class="btn btn-success" type="submit" value="Creat Email Template"><span style="color: red;font-weight: bold">template must be above then 50 words</span></button>
                             </div>
                         </form>
                 </div>
@@ -53,13 +55,31 @@
 
             </div>
        </div><!-- /.col -->
-  
+
 </div>
 </div>
 </div>
 
                  
 @include('layout.footer')
+<script>
+var $input = $('#textarea');
+var $button = $('#start_button');
+
+setInterval(function(){
+    if($input.val().length > 40){
+      
+        $button.attr('disabled', false);
+        $button.text('Creat Email Template');
+        
+    }else{
+        $button.attr('disabled', true);
+        
+        
+    }
+});
+  </script>
   </body>
+
 </html>
 
