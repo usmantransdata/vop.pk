@@ -50,15 +50,12 @@
                             <tr>
                                 <td>{{ $permission->name }}</td> 
                                 <td>
-                                <a href="{{ URL::to('permissions/'.$permission->id.'/edit') }}" class="btn btn-info" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                <a href="{{ URL::to('permissions/'.$permission->id.'/edit') }}" class="btn btn-info" >Edit</a>
 
-
-                                <a href="{{ route('permissions.destroy', $permission->id)}}" class="btn btn-danger">
-                                 
-                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                </a>
+                        {!! Form::open(['method' => 'DELETE', 'route' => ['permissions.destroy', $permission->id] ]) !!}
+                          {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                          {!! Form::close() !!}
                                
-
                                 </td>
                             </tr>
                             @endforeach

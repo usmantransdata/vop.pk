@@ -23,7 +23,7 @@
                   <div class="row">
                     <div class="col-xs-12">
                 <div class="content-wrapper">
-                   <div class="container" style="margin-top: 50px">     
+                   <div  style="margin-top: 50px">     
                 <table class="table table-striped">
                   <thead>
                     <tr>
@@ -42,7 +42,9 @@
 
               			<a href="{{route('email-view', $template->id)}}" style="margin-right:10px;" ><span class="fa fa-eye" aria-hidden="true"></span></a></button>
 
-                      	<a href="{{route('email-del')}}" ><span class="fa fa-trash-o" aria-hidden="true"></span></a></td>
+                      <!--	<a href="{{route('email-del')}}" ><span class="fa fa-trash-o" aria-hidden="true"></span></a>
+                      -->
+                    </td>
                      </tr>
                     @endforeach
                   </tbody>

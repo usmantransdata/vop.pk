@@ -12,6 +12,7 @@ use App\EmailTemplate;
 use Mail;
 use App\Mail\Email;
 use App\Mail\Welcome;
+use Illuminate\Support\Facades\Validator;
 
 
 //Importing laravel-permission models
@@ -50,6 +51,17 @@ class UserController extends Controller {
         return view('users.create', ['roles'=>$roles]);
     }
 
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+            'roles' => 'required'
+        ]);
+    }
+
     /**
     * Store a newly created resource in storage.
     *
@@ -58,37 +70,49 @@ class UserController extends Controller {
     */
     public function store(Request $request) {
     //Validate name, email and password fields
-        $this->validate($request, [
-            'name'=>'required|max:120',
-            'email'=>'required|email|unique:users',
-            'password'=>'required|min:6|confirmed'
-        ]);
-
-        $user = User::create($request->only('email', 'name', 'password')); //Retrieving only the email and password data
-
        
-        $roles = $request['roles']; //Retrieving the roles field
-    //Checking if a role was selected
+
+       $input = $request->all();
+        $validator = $this->validator($input);  
+       
+       if ($validator -> passes())
+
+       {
+        $user = User::create($request->only('email', 'name', 'password')); //Retrieving only the email and password data
+        $roles = $request['roles']; //Retreive all roles
+        
         if (isset($roles)) {
 
             foreach ($roles as $role) {
             $role_r = Role::where('id', '=', $role)->firstOrFail();            
             $user->assignRole($role_r); //Assigning role to user
             }
-        }   
-            $temp = AsignTemplate::find(1);
-             $email = EmailTemplate::findOrFail($temp->template_id)->first(); 
+        }
+           $temp = AsignTemplate::find(1);
+            $email = EmailTemplate::findOrFail($temp->template_id)->first(); 
             $data['subject']=$email->subject;
             $data['template']=$email->template;
             $data['title']=$email->title;    
             print_r($email->template);
-            $data['template']=str_replace("{{$data['name']}}", $email->subject, $email->template);
-                print_r($data['template']);
-            die();
-    //Redirect to the users.index view and display message
-        return redirect()->route('users.index')
+            $data['template']=str_replace("{{$data['title']}}", $email->subject, $email->template);
+       
+
+          //return back()->withAlert('Register successfully, please verify your email.');
+           return redirect()->route('users.index')
             ->with('flash_message',
              'User successfully added.');
+
+       }
+       else{
+        
+        return redirect()->back()->withErrors($validator)->withInput();
+
+       }
+
+     
+            
+    //Redirect to the users.index view and display message
+       
     }
 
     /**
@@ -123,6 +147,7 @@ class UserController extends Controller {
     * @return \Illuminate\Http\Response
     */
     public function update(Request $request, $id) {
+
         $user = User::findOrFail($id); //Get role specified by id
 
     //Validate name, email and password fields  

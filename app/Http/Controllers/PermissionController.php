@@ -13,6 +13,7 @@ use Spatie\Permission\Models\Permission;
 use Session;
 
 class PermissionController extends Controller {
+    
      public function __construct() {
      $this->middleware(['auth', 'isAdmin']);
        }
@@ -47,6 +48,7 @@ class PermissionController extends Controller {
     * @return \Illuminate\Http\Response
     */
     public function store(Request $request) {
+
         $this->validate($request, [
             'name'=>'required|max:40',
         ]);
@@ -124,6 +126,7 @@ class PermissionController extends Controller {
     * @return \Illuminate\Http\Response
     */
     public function destroy($id) {
+      
         $permission = Permission::findOrFail($id);
 
     //Make it impossible to delete this specific permission 

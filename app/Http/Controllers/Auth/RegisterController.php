@@ -47,8 +47,17 @@ class RegisterController extends Controller
      */
   public function __construct()
     {
-        $this->middleware('guest',['except' => ['getVerification', 'getVerificationError']]);
+        //$this->middleware('guest',['except' => ['getVerification', 'getVerificationError']]);
+
+
+         $this->middleware(['auth', 'isAdmin']);
     }
+
+    
+    
+    
+    
+
 
     /**
      * Get a validator for an incoming registration request.
@@ -117,8 +126,6 @@ class RegisterController extends Controller
             $temp = AsignTemplate::find(1);
             $email = EmailTemplate::findOrFail($temp->template_id)->first();	
 
-
-
 			$data['subject']=$email->subject;
 			$data['template']=$email->template;
             $data['title']=$email->title;
@@ -144,8 +151,6 @@ class RegisterController extends Controller
             $user->verification_token = '';
             $user->save();
             return redirect(route('login'))->with('status', 'Your activation is complete');
-
-
         }
 
     }

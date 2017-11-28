@@ -60,10 +60,10 @@ class EmailTemplateController extends Controller
         }
 
         $detail = $dom->saveHTML();
-
-        //dd($detail);
-
-        $user= new EmailTemplate();
+        if ($detail == ''){
+            echo "your body is empty please fill that up";
+        }else{
+            $user= new EmailTemplate();
         $user->title= $request['title'];
         $user->subject= $request['subject'];
         $user->avatar= $request['avatar'];
@@ -71,7 +71,9 @@ class EmailTemplateController extends Controller
     // add other fields
     $user->save();
 
-          return view('emails-template.templates');
+        $templates = EmailTemplate::get();
+        return view('emails-template.templates', ['templates' => $templates]);
+        }
     }
 
 

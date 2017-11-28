@@ -54,10 +54,32 @@
                   </li>
 
                    <li class="">
-                    <a href="{{route('users.index')}}">
-                      <i class="menu-icon fa fa-caret-right"></i>
-                     Users
-                    </a>
+                   
+                        <a href="#" class="dropdown-toggle">
+                          <i class="menu-icon fa fa-caret-right"></i>
+                          Users
+                          <b class="arrow fa fa-angle-down"></b>
+                        </a>
+                         <ul class="submenu">
+                        <li class="">
+                          <a href="{{route('users.index')}}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            User's list
+                          </a>
+
+                          <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                          <a href="{{route('users.create')}}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Add New Users
+                          </a>
+
+                          <b class="arrow"></b>
+                        </li>
+                      </ul>
+                    </li>
 
                     <b class="arrow"></b>
                   </li>

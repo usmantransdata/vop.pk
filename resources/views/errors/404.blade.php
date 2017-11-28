@@ -6,19 +6,19 @@
 		<meta name="description" content="404 Error Page" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 		<!-- bootstrap & fontawesome -->
-		<link rel="stylesheet" href="/aceadmin/assets/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="/aceadmin//assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="{{ asset('/') }}public/aceadmin/assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="{{ asset('/') }}public/aceadmin//assets/css/font-awesome.min.css" />
 		<!-- page specific plugin styles -->
 		<!-- text fonts -->
-		<link rel="stylesheet" href="/aceadmin//assets/css/ace-fonts.css" />
+		<link rel="stylesheet" href="{{ asset('/') }}public/aceadmin//assets/css/ace-fonts.css" />
 		<!-- ace styles -->
-		<link rel="stylesheet" href="/aceadmin//assets/css/ace.min.css" id="main-ace-style" />
+		<link rel="stylesheet" href="{{ asset('/') }}public/aceadmin//assets/css/ace.min.css" id="main-ace-style" />
 		<!--[if lte IE 9]>
 			<link rel="stylesheet" href="../assets/css/ace-part2.min.css" />
 		<![endif]-->
-		<link rel="stylesheet" href="/aceadmin//assets/css/ace-skins.min.css" />
-		<link rel="stylesheet" href="/aceadmin//assets/css/ace-rtl.min.css" />
-		<script src="/aceadmin//assets/js/ace-extra.min.js"></script>
+		<link rel="stylesheet" href="{{ asset('/') }}public/aceadmin//assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="{{ asset('/') }}public/aceadmin//assets/css/ace-rtl.min.css" />
+		<script src="{{ asset('/') }}public/aceadmin//assets/js/ace-extra.min.js"></script>
 	
 	</head>
 
@@ -88,7 +88,7 @@
 												Go Back
 											</a>
 
-											<a href="/backend" class="btn btn-primary">
+											<a href="{{ asset('/') }}index.php/backend" class="btn btn-primary">
 												<i class="ace-icon fa fa-tachometer"></i>
 												Dashboard
 											</a>

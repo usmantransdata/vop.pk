@@ -47,7 +47,7 @@
 											<div>
 												<!-- #section:pages/profile.picture -->
 												<span class="profile-picture">
-													<img id="avatar" class="editable img-responsive" alt="Alex's Avatar" src="/aceadmin/assets/avatars/profile-pic.jpg" />
+													<img id="avatar" class="editable img-responsive" alt="Alex's Avatar" src="{{ asset('/') }}public/aceadmin/assets/avatars/profile-pic.jpg" />
 												</span>
 
 												<!-- /section:pages/profile.picture -->
@@ -438,7 +438,7 @@
 
 		<!--[if !IE]> -->
 		<script type="text/javascript">
-			window.jQuery || document.write("<script src='/aceadmin/assets/js/jquery.min.js'>"+"<"+"/script>");
+			window.jQuery || document.write("<script src='{{ asset('/') }}public/aceadmin/assets/js/jquery.min.js'>"+"<"+"/script>");
 		</script>
 
 		<!-- <![endif]-->
@@ -449,32 +449,32 @@
 </script>
 <![endif]-->
 		<script type="text/javascript">
-			if('ontouchstart' in document.documentElement) document.write("<script src='/aceadmin/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+			if('ontouchstart' in document.documentElement) document.write("<script src='{{ asset('/') }}public/aceadmin/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 		</script>
-		<script src="/aceadmin/assets/js/bootstrap.min.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/assets/js/bootstrap.min.js"></script>
 
 		<!-- page specific plugin scripts -->
 
 		<!--[if lte IE 8]>
 		  <script src="../assets/js/excanvas.min.js"></script>
 		<![endif]-->
-		<script src="/aceadmin/assets/js/jquery-ui.custom.min.js"></script>
-		<script src="/aceadmin/assets/js/jquery.ui.touch-punch.min.js"></script>
-		<script src="/aceadmin/assets/js/jquery.gritter.min.js"></script>
-		<script src="/aceadmin/assets/js/bootbox.min.js"></script>
-		<script src="/aceadmin/assets/js/jquery.easypiechart.min.js"></script>
-		<script src="/aceadmin/assets/js/date-time/bootstrap-datepicker.min.js"></script>
-		<script src="/aceadmin/assets/js/jquery.hotkeys.min.js"></script>
-		<script src="/aceadmin/assets/js/bootstrap-wysiwyg.min.js"></script>
-		<script src="/aceadmin/assets/js/select2.min.js"></script>
-		<script src="/aceadmin/assets/js/fuelux/fuelux.spinner.min.js"></script>
-		<script src="/aceadmin/assets/js/x-editable/bootstrap-editable.min.js"></script>
-		<script src="/aceadmin/assets/js/x-editable/ace-editable.min.js"></script>
-		<script src="/aceadmin/assets/js/jquery.maskedinput.min.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/assets/js/jquery-ui.custom.min.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/assets/js/jquery.gritter.min.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/assets/js/bootbox.min.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/assets/js/jquery.easypiechart.min.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/assets/js/jquery.hotkeys.min.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/assets/js/bootstrap-wysiwyg.min.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/assets/js/select2.min.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/assets/js/fuelux/fuelux.spinner.min.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/assets/js/x-editable/bootstrap-editable.min.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/assets/js/x-editable/ace-editable.min.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/assets/js/jquery.maskedinput.min.js"></script>
 
 		<!-- ace scripts -->
-		<script src="/aceadmin/assets/js/ace-elements.min.js"></script>
-		<script src="/aceadmin/assets/js/ace.min.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/assets/js/ace-elements.min.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/assets/js/ace.min.js"></script>
 
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
@@ -924,16 +924,16 @@
 		</script>
 
 		<!-- the following scripts are used in demo only for onpage help and you don't need them -->
-		<link rel="stylesheet" href="/aceadmin/assets/css/ace.onpage-help.css" />
-		<link rel="stylesheet" href="/aceadmin/docs/assets/js/themes/sunburst.css" />
+		<link rel="stylesheet" href="{{ asset('/') }}public/aceadmin/assets/css/ace.onpage-help.css" />
+		<link rel="stylesheet" href="{{ asset('/') }}public/aceadmin/docs/assets/js/themes/sunburst.css" />
 
 		<script type="text/javascript"> ace.vars['base'] = '..'; </script>
-		<script src="/aceadmin/assets/js/ace/elements.onpage-help.js"></script>
-		<script src="/aceadmin/assets/js/ace/ace.onpage-help.js"></script>
-		<script src="/aceadmin/docs/assets/js/rainbow.js"></script>
-		<script src="/aceadmin/docs/assets/js/language/generic.js"></script>
-		<script src="/aceadmin/docs/assets/js/language/html.js"></script>
-		<script src="/aceadmin/docs/assets/js/language/css.js"></script>
-		<script src="/aceadmin/docs/assets/js/language/javascript.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/assets/js/ace/elements.onpage-help.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/assets/js/ace/ace.onpage-help.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/docs/assets/js/rainbow.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/docs/assets/js/language/generic.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/docs/assets/js/language/html.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/docs/assets/js/language/css.js"></script>
+		<script src="{{ asset('/') }}public/aceadmin/docs/assets/js/language/javascript.js"></script>
 	</body>
 </html>

@@ -28,8 +28,16 @@
               {{ Form::open(array('url' => 'permissions')) }}
 
               <div class="form-group">
-                  {{ Form::label('name', 'Name') }}
-                  {{ Form::text('name', '', array('class' => 'form-control')) }}
+                   <div class="{{ $errors->has('name') ? ' has-error' : '' }}">
+                      <label name="name"></label>
+                      <input type="text" name="name" id="name" class="form-control" >
+                       @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                      @endif
+                    </div>                      
+                 
               </div><br>
               @if(!$roles->isEmpty()) //If no roles exist yet
                   <h4>Assign Permission to Roles</h4>

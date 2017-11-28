@@ -53,13 +53,13 @@
                 <!-- #section:basics/navbar.user_menu -->
                 <li class="light-blue">
                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: transparent;">
-                      <img src="/dist/img/user2-160x160.jpg" style="width: 30px;" class="user-image" alt="User Image">
+                      <img src="{{ asset('/') }}public/dist/img/user2-160x160.jpg" style="width: 30px;" class="user-image" alt="User Image">
                       <span class="hidden-xs">{{ Auth::user()-> name }}</span>
                     </a>
 
                   <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                      <li class="user-header">
-                     <img src="/dist/img/user2-160x160.jpg" style="width: 150px;" class="user-image" alt="User Image">
+                     <img src="{{ asset('/') }}public/dist/img/user2-160x160.jpg" style="width: 150px;" class="user-image" alt="User Image">
                       <center>{{ Auth::user()-> name }}</center>
                       </p>
                     </li>

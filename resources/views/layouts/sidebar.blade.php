@@ -36,8 +36,16 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="{{ route('permissions.index')}}"><i class="fa fa-circle-o"></i> Permissions</a></li>
-            <li><a href="{{route('roles.index')}}"><i class="fa fa-circle-o"></i>User Roles</a></li>
+            <li class="active">
+              <a href="{{ route('permissions.index')}}"><i class="fa fa-circle-o">
+                
+              </i> Permissions</a>
+            </li>
+            <li>
+              <a href="{{route('roles.index')}}"><i class="fa fa-circle-o">
+                
+              </i>User Roles</a>
+            </li>
           </ul>
         </li>
         <li class="treeview">

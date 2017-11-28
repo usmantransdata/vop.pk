@@ -24,44 +24,82 @@
 
             <div class='col-lg-4 col-lg-offset-4'>
 
-                <h1><i class='fa fa-user-plus'></i> Add User</h1>
-                <hr>
+              <h1><i class='fa fa-user-plus'></i> Add User</h1>
+                        <hr>
 
-                {{ Form::open(array('url' => 'users')) }}
+                        {{ Form::open(array('url' => 'users')) }}
 
-                <div class="form-group">
-                    {{ Form::label('name', 'Name') }}
-                    {{ Form::text('name', '', array('class' => 'form-control')) }}
-                </div>
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                          <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                              <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
-                <div class="form-group">
-                    {{ Form::label('email', 'Email') }}
-                    {{ Form::email('email', '', array('class' => 'form-control')) }}
-                </div>
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                              <i class="ace-icon fa fa-envelope"></i>
+                            </span>
+                          </label>
+                          </div>
 
-                <div class='form-group'>
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                          <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                               <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                           
+                              <i class="ace-icon fa fa-user"></i>
+                            </span>
+                          </label>
+                           </div>
+
+                        <div class='form-group'>
+
                     @foreach ($roles as $role)
-                        {{ Form::radio('roles[]',  $role->id ) }}
-                        {{ Form::label($role->name, ucfirst($role->name)) }}<br>
+                   <!--  {{ Form::radio('roles[]',  $role->id , array('id' => 'numb')) }}
+                     {{ Form::label($role->name, ucfirst($role->name)) }}<br>
+                   -->
+         <div class="form-group{{ $errors->has('roles') ? ' has-error' : '' }}">       
+            <div class="radio">
+               <label class="form-check-inline">
+     <input type="radio" name="roles[]" id="roles" value="{{$role->id}}" {{ (is_array(old('roles')) && in_array(2, old('roles'))) ? ' checked' : '' }} />{{$role->name, ucfirst($role->name)}}</label>
+            </div>
+             </div>
+          @endforeach
+             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}"> 
+                          <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                             <input id="password" type="password" class="form-control" name="password" required>
 
-                    @endforeach
-                </div>
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                              <i class="ace-icon fa fa-lock"></i>
+                            </span>
+                          </label>
+                          </div>
 
-                <div class="form-group">
-                    {{ Form::label('password', 'Password') }}<br>
-                    {{ Form::password('password', array('class' => 'form-control')) }}
+                         <div class="form-group">
+                          <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                              <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                              <i class="ace-icon fa fa-retweet"></i>
+                            </span>
+                          </label>
+                        </div>
 
-                </div>
+                        {{ Form::submit('Add', array('class' => 'btn btn-primary')) }}
 
-                <div class="form-group">
-                    {{ Form::label('password', 'Confirm Password') }}<br>
-                    {{ Form::password('password_confirmation', array('class' => 'form-control')) }}
-
-                </div>
-
-                {{ Form::submit('Add', array('class' => 'btn btn-primary')) }}
-
-                {{ Form::close() }}
+                        {{ Form::close() }}
 
             </div>
 

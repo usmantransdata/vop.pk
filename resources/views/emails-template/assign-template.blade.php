@@ -119,21 +119,24 @@
           		    </div>
           		    <div class="modal-body">
           		<form action="{{route('asign-template')}}">
-          		  
 
+
+                <div class="field"> 
           		    <label for="name">Name</label>
-          		    <input type="text" class="template" id="name" name="name" placeholder="Template">
-
+          		    <input type="text" id="input" class="template" id="name" name="name" placeholder="Template">
+                 </span>
+                 </div>   
           		    <label for="template">Template</label>
           		    <select id="tmeplate" class="template" name="template">
           		    	@foreach($temps as $temp)
           		      	<option value="{{$temp->id}}">{{$temp->title}}</option>
           		      	@endforeach
-          		    </select>	   
+          		    </select>	
+              
           	</div>
 
-		    <div class="modal-footer">
-		      <input style="float:right;background-color:#000;"" type="submit" class="template_submit" value="Submit">
+		    <div class="modal-footer actions">
+		      <input style="float:right;background-color:#000;" id="start_button"  type="submit" class="template_submit" value="Submit">
       		  </form>
       		    </div>
       		  </div>
@@ -173,9 +176,20 @@
 
 @include('layout.footer')
  
+<script>
 
+var $input = $('#input');
+var $button = $('#start_button');
 
- <script>
+setInterval(function(){
+    if($input.val().length > 0){
+      
+        $button.attr('disabled', false);
+    }else{
+        $button.attr('disabled', true);
+    }
+}, 100);
+
 // Get the modal
 var modal = document.getElementById('myModal');
 
