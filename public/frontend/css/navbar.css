@@ -1,0 +1,280 @@
+/* To embed your selected fonts into a webpage */
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic,500,500italic,700,700italic,900,900italic&subset=latin,latin-ext,cyrillic,cyrillic-ext,greek-ext,greek,vietnamese);
+
+
+/* Smartphones (portrait and landscape) --  --  --  --  -- - */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
+    /* Styles */
+    /* This is body background and Demo purpose only */
+    
+    .demo {
+        font-family: 'Roboto', sans-serif;
+        font-size: 13px;
+        line-height: 1.5;
+        color: #555;
+        background-color: #f0f0f0;
+    }
+    /* Top Nav bar CSS */
+    
+    #top_nav .navbar-fixed-top {
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        width: 100%;
+        display: block;
+        top: 0px;
+        background-color: transparent;
+        z-index: 999;
+        padding: 0px;
+        height: 64px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+    /* Mobile Side Shadow */
+    
+    #top_nav nav,
+    #top_nav .side-nav {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+    /* Padding top */
+    
+    #top_nav .pad-top {
+        padding-top: 70px;
+    }
+    /* Top Navigation color */
+    
+    #top_nav .light-blue.lighten-1 {
+        background-color: transparent !important;
+    }
+    /* Navigation list */
+    
+    #top_nav nav ul li a:active {
+        background: #2781ba;
+    }
+    #top_nav nav ul li:active a {
+        background: #2781ba;
+    }
+    /* Heading */
+    
+    #top_nav h3 {
+        font-size: 30px;
+    }
+    #top_nav h4 {
+        font-size: 22px;
+    }
+    /* Paragraph CSS */
+    
+    #top_nav p {
+        font-size: 15px;
+    }
+}
+/* Smartphones (landscape) --  --  --  --  -- - */
+
+@media only screen and (min-width: 321px) {
+    /* Styles */
+}
+/* Smartphones (portrait) --  --  --  --  -- - */
+
+@media only screen and (max-width: 320px) {
+    /* Styles */
+}
+/* iPads (portrait and landscape) --  --  --  --  -- - */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    /* Styles */
+    /* This is body background and Demo purpose only */
+    
+    .demo {
+        font-family: 'Roboto', sans-serif;
+        font-size: 13px;
+        line-height: 1.5;
+        color: #555;
+        background-color: #f0f0f0;
+    }
+    /* Top Nav bar CSS */
+    
+    #top_nav .navbar-fixed-top {
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        width: 100%;
+        display: block;
+        top: 0px;
+        background-color: transparent;
+        z-index: 999;
+        padding: 0px;
+        height: 64px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+    /* Mobile Side Shadow */
+    
+    #top_nav nav,
+    #top_nav .side-nav {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+    /* Padding top */
+    
+    #top_nav .pad-top {
+        padding-top: 70px;
+    }
+    /* Top Navigation color */
+    
+    #top_nav .light-blue.lighten-1 {
+        background-color: transparent !important;
+    }
+    /* Navigation list */
+    
+    #top_nav nav ul li a:active {
+        background: #2781ba;
+    }
+    #top_nav nav ul li:active a {
+        background: #2781ba;
+    }
+    /* Heading */
+    
+    #top_nav h3 {
+        font-size: 30px;
+    }
+    #top_nav h4 {
+        font-size: 22px;
+    }
+    /* Paragraph CSS */
+    
+    #top_nav p {
+        font-size: 15px;
+    }
+}
+/* iPads (landscape) --  --  --  --  -- - */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {}
+/* iPads (portrait) --  --  --  --  -- - */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    /* Styles */
+}
+/* Desktops and laptops --  --  --  --  -- - */
+
+@media only screen and (min-width: 1224px) {
+    /* Styles */
+    /* This is body background and Demo purpose only */
+    
+    .demo {
+        font-family: 'Roboto', sans-serif;
+        font-size: 13px;
+        line-height: 1.5;
+        color: #555;
+        background-color: #f0f0f0;
+    }
+    /* Top Nav bar CSS */
+    
+    #top_nav .navbar-fixed-top {
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        width: 100%;
+        display: block;
+        top: 0px;
+        background-color: transparent;
+        z-index: 999;
+        padding: 0px;
+        height: 64px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+    /* Mobile Side Shadow */
+    
+    #top_nav nav,
+    #top_nav .side-nav {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+    /* Padding top */
+    
+    #top_nav .pad-top {
+        padding-top: 70px;
+    }
+    /* Top Navigation color */
+    
+    #top_nav .light-blue.lighten-1 {
+        background-color: transparent !important;
+    }
+    #top_nav nav ul li a:hover {
+        background-color: transparent;
+    }
+    #top_nav nav ul li.active {
+        background-color: transparent !important;
+    }
+    /* Paragraph CSS */
+    
+    #top_nav p {
+        font-size: 15px;
+    }
+}
+/* Large screens --  --  --  --  -- - */
+
+@media only screen and (min-width: 1824px) {
+    /* Styles */
+}
+/* Bounce To Top */
+
+#top_nav .hvr-bounce-to-top {
+    display: block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+#top_nav .hvr-bounce-to-top:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #0290CD;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+#top_nav .hvr-bounce-to-top:hover,
+#top_nav .hvr-bounce-to-top:focus,
+#top_nav .hvr-bounce-to-top:active {
+    color: white;
+}
+#top_nav .hvr-bounce-to-top:hover:before,
+#top_nav .hvr-bounce-to-top:focus:before,
+#top_nav .hvr-bounce-to-top:active:before {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+    transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+#top_nav nav ul a, #top_nav nav .brand-logo {
+    font-size: 15px;
+}
